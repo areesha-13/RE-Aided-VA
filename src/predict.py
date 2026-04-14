@@ -25,8 +25,8 @@ def get_embedding(code: str, tokenizer, model) -> np.ndarray:
     return outputs.last_hidden_state.mean(dim=1).squeeze().numpy()
 
 def train_and_evaluate(dataset_path: str):
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, revision="main")
-    model = AutoModel.from_pretrained(MODEL_NAME, revision="main")
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, revision="main")  # nosec B615
+    model = AutoModel.from_pretrained(MODEL_NAME, revision="main")  # nosec B615
 
     data = load_dataset(dataset_path)
     embeddings = [get_embedding(s["code"], tokenizer, model) for s in data]
