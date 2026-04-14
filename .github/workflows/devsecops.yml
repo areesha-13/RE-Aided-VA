@@ -47,4 +47,4 @@ jobs:
       - name: Smoke test container
         run: |
           docker run --rm re-aided-va:${{ github.sha }} python -c \
-            "from transformers import AutoTokenizer; print('OK')"
+            "import torch; import sklearn; import transformers; print('All dependencies OK')"
