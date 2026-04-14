@@ -10,4 +10,4 @@ COPY src/ ./src/
 
 USER appuser
 
-ENTRYPOINT ["python", "src/predict.py"]
+CMD ["python", "src/predict.py"]
